@@ -23,7 +23,6 @@ const AddProduct = () => {
       }
 
       const response = await axios.post('https://dummyjson.com/products/add', formData);
-      console.log(response.data);
 
       const newProduct = {
         id: response.data.id || Date.now(),

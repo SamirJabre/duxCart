@@ -9,8 +9,6 @@ const Cart = () => {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    console.log(products);
-
     let totalPrice = 0;
     products.forEach(item => {
       totalPrice += item.price * item.quantity;
