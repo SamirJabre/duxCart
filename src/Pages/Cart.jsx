@@ -43,13 +43,12 @@ const Cart = () => {
 
   return (
     <View className='w-full h-full bg-secondary flex items-center justify-between'>
-
-      <View className='w-full h-3/4 bg-blue-500'>
+      <View className='w-full h-3/4'>
         <FlatList
           data={products}
           renderItem={renderCartItem}
           keyExtractor={(item) => item.id.toString()}
-          className='w-full h-full bg-red-500'
+          className='w-full h-full'
           contentContainerStyle={{ padding: 16, alignContent: 'center', justifyContent: 'center' }}
         />
       </View>
