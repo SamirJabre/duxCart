@@ -5,14 +5,12 @@ import Navigations from './src/Navigations'
 import "./global.css"
 import { Provider } from 'react-redux'
 import { store } from './src/Redux/store'
+import Login from './src/Pages/Login'
 
 const App = () => {
   return (
     <Provider store={store}>
-      <NavigationContainer>
-        <StatusBar barStyle="dark-content" backgroundColor="#ffffff" />
-        <Navigations />
-      </NavigationContainer>
+      <Login />
     </Provider>
   )
 }
