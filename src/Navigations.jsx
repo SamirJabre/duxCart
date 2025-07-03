@@ -2,6 +2,7 @@ import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import Products from './Pages/Products'
 import Cart from './Pages/Cart'
 import AddProduct from './Pages/AddProduct'
+import Login from './Pages/Login';
 import { Text } from 'react-native';
 
 

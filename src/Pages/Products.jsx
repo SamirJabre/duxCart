@@ -1,4 +1,4 @@
-import { View, Text, FlatList, Image, TouchableOpacity } from 'react-native'
+import { View, Text, FlatList, Image, TouchableOpacity, SafeAreaView, StatusBar } from 'react-native'
 import { useEffect } from 'react'
 import shoppingCart from '../Assets/Icons/shoppingCartWhite.png'
 import { useSelector, useDispatch } from 'react-redux'
@@ -34,14 +34,17 @@ const Products = () => {
     }
 
     return (
-        <View className='w-screen h-full bg-secondary flex items-center justify-center'>
-            <FlatList
-                data={items}
-                renderItem={renderProducts}
-                keyExtractor={(item) => item.id.toString()}
-                className='w-full h-fit flex-1 py-5'
-            />
-        </View>
+        <SafeAreaView className='flex-1 bg-secondary' style={{ paddingTop: StatusBar.currentHeight }}>
+            <StatusBar barStyle="light-content" />
+            <View className='w-full h-full bg-secondary flex items-center justify-center'>
+                <FlatList
+                    data={items}
+                    renderItem={renderProducts}
+                    keyExtractor={(item) => item.id.toString()}
+                    className='w-full h-fit flex-1 py-5'
+                />
+            </View>
+        </SafeAreaView>
     )
 }
 
