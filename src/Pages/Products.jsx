@@ -35,7 +35,7 @@ const Products = () => {
 
     return (
         <SafeAreaView className='flex-1 bg-secondary' style={{ paddingTop: StatusBar.currentHeight }}>
-            <StatusBar barStyle="light-content" />
+            <StatusBar barStyle="light-content" backgroundColor={'#1F1C2C'}/>
             <View className='w-full h-full bg-secondary flex items-center justify-center'>
                 <FlatList
                     data={items}
