@@ -1,10 +1,23 @@
 import { View, Text, TextInput, StatusBar, SafeAreaView, TouchableOpacity } from 'react-native'
-import React from 'react'
+import React, { useEffect } from 'react'
 import { string, object, ref } from 'yup';
 import { Formik, useFormik } from 'formik';
 import { useNavigation } from '@react-navigation/native';
+import axios from 'axios'
 
 const Login = () => {
+
+    useEffect(()=>{
+        const fetchExampleData = async () => {
+            try {
+                await axios.get('http:192.168.66.53:3000/products').then(res => console.log(res.data));
+            } catch (error) {
+                console.error('Error fetching data:', error);
+            }
+        }
+        fetchExampleData();
+    },[])
+
     const navigation = useNavigation();
 
     const userSchema = object({
