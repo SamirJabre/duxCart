@@ -1,8 +1,10 @@
 import { View, Text, TextInput, StatusBar, SafeAreaView, TouchableOpacity, Button } from 'react-native'
 import { string, object, ref } from 'yup';
-import { Formik, useFormik } from 'formik';
+import { useFormik } from 'formik';
 import { useNavigation } from '@react-navigation/native';
 import axios from 'axios'
+import { BASE_URL } from '@env';
+
 
 const Register = () => {
 
@@ -25,7 +27,7 @@ const Register = () => {
         },
         validationSchema: userSchema,
         onSubmit: async (values, actions) => {
-                await axios.post('http://192.168.1.108:3002/users/register', values)
+                await axios.post(`${BASE_URL}/users/register`, values)
                 .then(()=>{
                     actions.resetForm();
                     actions.setSubmitting(false);

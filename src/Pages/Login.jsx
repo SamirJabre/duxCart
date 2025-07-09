@@ -1,11 +1,15 @@
 import { View, Text, TextInput, StatusBar, SafeAreaView, TouchableOpacity, Alert, Button } from 'react-native'
-import { string, object, ref } from 'yup';
-import { Formik, useFormik } from 'formik';
+import { string, object } from 'yup';
+import { useFormik } from 'formik';
 import { useNavigation } from '@react-navigation/native';
 import axios from 'axios'
+import { BASE_URL } from '@env';
 
 const Login = () => {
-
+    
+    console.log('BASE_URL:', BASE_URL);
+    // console.log("Hello from Login Page");
+    
 
     const navigation = useNavigation();
 
@@ -22,7 +26,7 @@ const Login = () => {
         validationSchema: userSchema,
         onSubmit: async (values, actions) => {
             try{
-                await axios.post('http://192.168.1.108:3002/users/login',values)
+                await axios.post(`${BASE_URL}/users/login`,values)
                 .then(() => {
                     actions.resetForm();
                     actions.setSubmitting(false);
@@ -37,7 +41,7 @@ const Login = () => {
             }
         }
     })
-    console.log('Errors:', errors);
+    console.log('Errors: you bastard', errors);
 
     return (
         <SafeAreaView className='h-screen w-screen items-center justify-start bg-secondary pt-40'>

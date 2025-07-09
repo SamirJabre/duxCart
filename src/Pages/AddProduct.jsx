@@ -3,6 +3,8 @@ import React, { useState } from 'react'
 import axios from 'axios'
 import { addProduct } from '../Redux/Slices/productSlice'
 import { useDispatch } from 'react-redux'
+import { BASE_URL } from '@env';
+
 
 const AddProduct = () => {
   const dispatch = useDispatch();

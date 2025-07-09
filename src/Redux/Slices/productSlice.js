@@ -1,11 +1,13 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 import axios from 'axios';
+import { BASE_URL } from '@env';
+
 
 export const fetchProducts = createAsyncThunk(
     'products/fetchProducts',
     async (_, { rejectWithValue }) => {
         try {
-            const res = await axios.get('http://192.168.1.108:3002/products');
+            const res = await axios.get(`${BASE_URL}/products`);
             return res.data;
         } catch (error) {
             return rejectWithValue(error.message);
